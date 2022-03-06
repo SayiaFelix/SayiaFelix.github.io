@@ -1,0 +1,110 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightblue;
+    height: 100vh;
+    width: 100%;
+    border: 2px solid black;
+    overflow: hidden;
+}
+
+.container {
+    width: 60%;
+    max-width: 100%;
+    height: 99vh;
+    border-radius: 20px;
+    box-shadow: 2px 5px 15px #000000;
+    background-color: #ffffff;
+}
+
+.birthday_title {
+    width: 100%;
+    text-align: center;
+}
+
+.birthday_title h2 {
+    border-bottom: 2px solid #ffffff;
+    font-weight: bold;
+}
+
+.birthday_title P {
+    font-size: 17px;
+}
+
+.form {
+    padding: 10px 40px;
+    font-family: verdana;
+}
+
+.container-form {
+    margin-bottom: 5px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.container-form label {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.input {
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 4px;
+    width: 50%;
+    font-family: inherit;
+    color: black;
+}
+
+.submit-btn {
+    background-color: rgb(14, 182, 238);
+    color: #ffffff;
+    width: 100%;
+    height: 40px;
+    font-size: 23px;
+    font-weight: bold;
+    outline: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: none;
+    border-radius: 10px;
+    transition: 0.3s;
+    margin-top: 5px;
+}
+
+.submit-btn:hover {
+    background-color: black;
+    transition: 0.2s;
+    color: rgb(12, 173, 226);
+}
+
+select {
+    padding: 5px;
+    font-size: 17px;
+    font-weight: 700;
+    background-color: rgb(12, 173, 226);
+    border-radius: 10px;
+    margin-left: 10px;
+    width: 30%;
+}
+
+#gender {
+    width: 70%;
+    height: 40px;
+    margin-left: 15%;
+    background-color: wheat;
+    border: 1px solid #ffffff;
+}
+
+.birth {
+    display: flex;
+}
+
+#result {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
