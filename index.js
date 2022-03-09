@@ -1,77 +1,58 @@
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('form').onsubmit = function validateForm() {
+let form = document.getElementById('form');
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-        const day = document.querySelector('#day').value;
+    validateDate();
 
-        const male = document.querySelector('#male').value;
-        const female = document.querySelector('#female').value;
-
-
+});
 
 
-        if (day <= 0 || day > 31) {
+function validateDate() {
 
-            alert('Your date is invalid,\n please enter the valid date');
-            return false;
-        }
+    const gender = document.getElementById('gender').value;
+    const maleAkanNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
+    const femaleAkanNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
 
-        if (male !== "" || female !== "") {
-            alert('Your Akan name is,Koffi')
-            return false;
-        }
-    };
+    let date = document.getElementById("date").value;
+    if (!date) {
+        return alert("Please select Your Date to continue!!!");
+    }
 
-
-
-    const result = document.getElementById('result');
-
-    function validateForm() {
-
-        const dates = new Date(day.value, mont.value, year.value);
-
-        const days = dates.getDay();
-
-        switch (days) {
-            case 0:
-                result.innerHTML = "Sunday,kwasi";
-                break;
-            case 1:
-                result.innerHTML = "Monday";
-                break;
-            case 2:
-                result.innerHTML = "Tuesday";
-                break;
-            case 3:
-                result.innerHTML = "Wednesday";
-                break;
-            case 4:
-                result.innerHTML = "Thursday";
-                break;
-            case 5:
-                result.innerHTML = "Friday";
-                break;
-            case 6:
-                result.innerHTML = "Saturday";
-                break;
-
-        }
-
-
+    if (gender === "none") {
+        return alert("Please select your gender to continue!!!")
 
     }
-});
-newFunction();
 
-function newFunction() {
 
-    const male = document.querySelector('#male').value;
-    const female = document.querySelector('#female').value;
-    const maleName = ['Kwasi', 'Kwadwo', 'Kwabena', 'Kwaku', 'Yaw', ' Kofi', 'Kwame'];
-    const femaleName = ['Akosua', 'Adwoa', 'Abenaa', 'Akua', 'Yaa', 'Afua', 'Ama'];
+    let bornDate = new Date(date);
+    let maleNameValue = getmaleAkanNames(maleAkanNames, bornDate.getDay());
+    let femaleNameValue = getfemaleAkanNames(femaleAkanNames, bornDate.getDay());
 
 
 
+    if (date && maleNameValue !== "none") {
+        let daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        for (let i = 0; i < daysOfTheWeek.length; i++) {
 
+            if (bornDate.getDay() === i) {
+                alert(`Born on ${daysOfTheWeek[i]},\n your Akan name is ${maleNameValue}`);
 
+                document.querySelector("#gender").value = "none";
+                document.querySelector("#date").value = "";
+            }
+        }
+    }
+    if (date && femaleNameValue !== "none") {
+        let daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        for (let i = 0; i < daysOfTheWeek.length; i++) {
 
-}
+            if (bornDate.getDay() === i) {
+                alert(`Born on ${daysOfTheWeek[i]},\n your Akan name is ${femaleNameValue}`);
+
+                document.querySelector("#gender").value = "none";
+                document.querySelector("#date").value = "";
+            }
+        }
+    }
+
+};
